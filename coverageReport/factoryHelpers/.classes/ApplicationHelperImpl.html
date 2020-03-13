@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+    <title>Coverage Report :: ApplicationHelperImpl</title>
+    <style type="text/css">
+        @import "../../.css/coverage.css";
+    </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+    <div class="breadCrumbs">
+        [ <a href="../../index.html">all classes</a> ]
+        [ <a href="../index.html">factoryHelpers</a> ]
+    </div>
+
+    <h1>Coverage Summary for Class: ApplicationHelperImpl (factoryHelpers)</h1>
+
+    <table class="coverageStats">
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Class, %
+            </th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">ApplicationHelperImpl</td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/ 1)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/ 3)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+                <span class="absValue">
+    (0/ 12)
+  </span>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <div class="sourceCode"><i>1</i>&nbsp;package factoryHelpers;
+        <i>2</i>&nbsp;
+        <i>3</i>&nbsp;import org.apache.commons.cli.*;
+        <i>4</i>&nbsp;import services.IOSetup;
+        <i>5</i>&nbsp;import services.Operation;
+        <i>6</i>&nbsp;import services.ProcessCustomers;
+        <i>7</i>&nbsp;
+        <i>8</i>&nbsp;/**
+        <i>9</i>&nbsp; * &lt;p&gt;The implementation of the ApplicationHelper that
+        <i>10</i>&nbsp; * returns the required instances&lt;/p&gt;
+        <i>11</i>&nbsp; */
+        <b class="nc"><i>12</i>&nbsp;public class ApplicationHelperImpl implements ApplicationHelper {</b>
+        <i>13</i>&nbsp; @Override
+        <i>14</i>&nbsp; public IOSetup getIOSetupInstance() {
+        <b class="nc"><i>15</i>&nbsp; CommandLineParser parser = new DefaultParser();</b>
+        <b class="nc"><i>16</i>&nbsp; HelpFormatter helpFormatter = new HelpFormatter();</b>
+        <b class="nc"><i>17</i>&nbsp; Option inputOpt = new Option(</b>
+        <i>18</i>&nbsp; &quot;i&quot;,
+        <i>19</i>&nbsp; &quot;InputFile&quot;,
+        <i>20</i>&nbsp; true,
+        <i>21</i>&nbsp; &quot;An option to specify the path for an input file.&quot; +
+        <i>22</i>&nbsp; &quot; The input file must be in txt format&quot;);
+        <b class="nc"><i>23</i>&nbsp; Option outputOpt = new Option(</b>
+        <i>24</i>&nbsp; &quot;o&quot;,
+        <i>25</i>&nbsp; &quot;OutputFile&quot;,
+        <i>26</i>&nbsp; true,
+        <i>27</i>&nbsp; &quot;An option to specify the path for output file.&quot;);
+        <b class="nc"><i>28</i>&nbsp; Options options = new Options();</b>
+        <b class="nc"><i>29</i>&nbsp; options.addOption(inputOpt);</b>
+        <b class="nc"><i>30</i>&nbsp; options.addOption(outputOpt);</b>
+        <b class="nc"><i>31</i>&nbsp; return new IOSetup(parser, helpFormatter, options);</b>
+        <i>32</i>&nbsp; }
+        <i>33</i>&nbsp;
+        <i>34</i>&nbsp; @Override
+        <i>35</i>&nbsp; public ProcessCustomers getProcessCustomersInstance() {
+        <b class="nc"><i>36</i>&nbsp; IOSetup ioSetup = getIOSetupInstance();</b>
+        <b class="nc"><i>37</i>&nbsp; Operation operation = new Operation();</b>
+        <b class="nc"><i>38</i>&nbsp; return new ProcessCustomers(ioSetup, operation);</b>
+        <i>39</i>&nbsp; }
+        <i>40</i>&nbsp;}
+    </div>
+</div>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2020-03-13 12:57</div>
+</div>
+</body>
+</html>

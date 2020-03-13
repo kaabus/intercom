@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+    <title>Coverage Report :: ProcessCustomers</title>
+    <style type="text/css">
+        @import "../../.css/coverage.css";
+    </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+    <div class="breadCrumbs">
+        [ <a href="../../index.html">all classes</a> ]
+        [ <a href="../index.html">services</a> ]
+    </div>
+
+    <h1>Coverage Summary for Class: ProcessCustomers (services)</h1>
+
+    <table class="coverageStats">
+
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">ProcessCustomers</td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (3/ 3)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (20/ 20)
+  </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="name">ProcessCustomers$MockitoMock$1875263384</td>
+        </tr>
+        <tr>
+            <td class="name">ProcessCustomers$MockitoMock$1875263384$auxiliary$4nZu6zOD</td>
+        </tr>
+        <tr>
+            <td class="name">ProcessCustomers$MockitoMock$1875263384$auxiliary$99tTntR1</td>
+        </tr>
+        <tr>
+            <td class="name">ProcessCustomers$MockitoMock$1875263384$auxiliary$Fk3oMTk5</td>
+        </tr>
+        <tr>
+            <td class="name">ProcessCustomers$MockitoMock$1875263384$auxiliary$ZxX5QBbU</td>
+        </tr>
+        <tr>
+            <td class="name"><strong>total</strong></td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (3/ 3)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (20/ 20)
+  </span>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <div class="sourceCode"><i>1</i>&nbsp;package services;
+        <i>2</i>&nbsp;
+        <i>3</i>&nbsp;import model.Customer;
+        <i>4</i>&nbsp;import org.apache.commons.cli.ParseException;
+        <i>5</i>&nbsp;
+        <i>6</i>&nbsp;import java.io.IOException;
+        <i>7</i>&nbsp;import java.util.ArrayList;
+        <i>8</i>&nbsp;
+        <i>9</i>&nbsp;/**
+        <i>10</i>&nbsp; * This class behaves like a controller between IOSetup and Operation
+        <i>11</i>&nbsp; */
+        <i>12</i>&nbsp;public class ProcessCustomers {
+        <i>13</i>&nbsp; private IOSetup ioSetup;
+        <i>14</i>&nbsp; private Operation operation;
+        <i>15</i>&nbsp;
+        <b class="fc"><i>16</i>&nbsp; public ProcessCustomers(IOSetup ioSetup, Operation operation) {</b>
+        <b class="fc"><i>17</i>&nbsp; this.ioSetup = ioSetup;</b>
+        <b class="fc"><i>18</i>&nbsp; this.operation = operation;</b>
+        <b class="fc"><i>19</i>&nbsp; }</b>
+        <i>20</i>&nbsp;
+        <i>21</i>&nbsp; /**
+        <i>22</i>&nbsp; * To process the args passed by the user and get the customers list
+        <i>23</i>&nbsp; *
+        <i>24</i>&nbsp; * @param args by the user
+        <i>25</i>&nbsp; * @throws IOException if the input or output is wrong
+        <i>26</i>&nbsp; * @throws ParseException if the args are wrong
+        <i>27</i>&nbsp; */
+        <i>28</i>&nbsp; public void processCustomers(String[] args) throws IOException, ParseException {
+        <b class="fc"><i>29</i>&nbsp; ArrayList&lt;Customer&gt; customers = ioSetup.setUpCLI(args);</b>
+        <i>30</i>&nbsp;
+        <b class="fc"><i>31</i>&nbsp; if (customers != null &amp;&amp; !customers.isEmpty()) {</b>
+        <b class="fc"><i>32</i>&nbsp; for (Customer c : customers) {</b>
+        <b class="fc"><i>33</i>&nbsp; c.setGreatCircularDistance(operation.calculateGreatCircleDistance(c));</b>
+        <b class="fc"><i>34</i>&nbsp; }</b>
+        <b class="fc"><i>35</i>&nbsp; ioSetup.startWriteOutputFile(computeClosestCustomers(customers));</b>
+        <i>36</i>&nbsp; }
+        <i>37</i>&nbsp;
+        <b class="fc"><i>38</i>&nbsp; }</b>
+        <i>39</i>&nbsp;
+        <i>40</i>&nbsp; /**
+        <i>41</i>&nbsp; * Computes the customer&#39;s gcd in respect to intercom&#39;s location
+        <i>42</i>&nbsp; *
+        <i>43</i>&nbsp; * @param customers with lat and long
+        <i>44</i>&nbsp; * @return customer list to be printed
+        <i>45</i>&nbsp; * @throws IOException
+        <i>46</i>&nbsp; */
+        <i>47</i>&nbsp; public ArrayList&lt;Customer&gt; computeClosestCustomers(ArrayList&lt;Customer&gt; customers)
+        throws IOException {
+        <b class="fc"><i>48</i>&nbsp; ArrayList&lt;Customer&gt; customersWithinRange = new ArrayList&lt;&gt;();</b>
+        <b class="fc"><i>49</i>&nbsp; for (Customer c : customers) {</b>
+        <b class="fc"><i>50</i>&nbsp; if (c.getGreatCircularDistance() &lt;= 100) {</b>
+        <b class="fc"><i>51</i>&nbsp; Customer customer = new Customer();</b>
+        <b class="fc"><i>52</i>&nbsp; customer.setName(c.getName());</b>
+        <b class="fc"><i>53</i>&nbsp; customer.setUser_id(c.getUser_id());</b>
+        <b class="fc"><i>54</i>&nbsp; customersWithinRange.add(customer);</b>
+        <i>55</i>&nbsp; }
+        <b class="fc"><i>56</i>&nbsp; }</b>
+        <b class="fc"><i>57</i>&nbsp; return customersWithinRange;</b>
+        <i>58</i>&nbsp; }
+        <i>59</i>&nbsp;}
+    </div>
+</div>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2020-03-13 12:57</div>
+</div>
+</body>
+</html>

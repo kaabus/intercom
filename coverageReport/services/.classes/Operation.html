@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+    <title>Coverage Report :: Operation</title>
+    <style type="text/css">
+        @import "../../.css/coverage.css";
+    </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+    <div class="breadCrumbs">
+        [ <a href="../../index.html">all classes</a> ]
+        [ <a href="../index.html">services</a> ]
+    </div>
+
+    <h1>Coverage Summary for Class: Operation (services)</h1>
+
+    <table class="coverageStats">
+
+        <tr>
+            <th class="name">Class</th>
+            <th class="coverageStat
+">
+                Method, %
+            </th>
+            <th class="coverageStat
+">
+                Line, %
+            </th>
+        </tr>
+        <tr>
+            <td class="name">Operation</td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (5/ 5)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (13/ 13)
+  </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="name">Operation$MockitoMock$1173219108</td>
+        </tr>
+        <tr>
+            <td class="name">Operation$MockitoMock$1173219108$auxiliary$1Ztdjohh</td>
+        </tr>
+        <tr>
+            <td class="name">Operation$MockitoMock$1173219108$auxiliary$2jaoU7gF</td>
+        </tr>
+        <tr>
+            <td class="name">Operation$MockitoMock$1173219108$auxiliary$BazqQSG6</td>
+        </tr>
+        <tr>
+            <td class="name">Operation$MockitoMock$1173219108$auxiliary$eBsUWrXY</td>
+        </tr>
+        <tr>
+            <td class="name">Operation$MockitoMock$1173219108$auxiliary$FQAXK5DA</td>
+        </tr>
+        <tr>
+            <td class="name">Operation$MockitoMock$1173219108$auxiliary$mEvdEVYX</td>
+        </tr>
+        <tr>
+            <td class="name"><strong>total</strong></td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (5/ 5)
+  </span>
+            </td>
+            <td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+                <span class="absValue">
+    (13/ 13)
+  </span>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <div class="sourceCode"><i>1</i>&nbsp;package services;
+        <i>2</i>&nbsp;
+        <i>3</i>&nbsp;import model.Customer;
+        <i>4</i>&nbsp;
+        <i>5</i>&nbsp;/**
+        <i>6</i>&nbsp; * &lt;p&gt;This class handles all the mathematical formulas that are required
+        <i>7</i>&nbsp; * to solve the mystery of the distance between 2 locations&lt;/p&gt;
+        <i>8</i>&nbsp; */
+        <b class="fc"><i>9</i>&nbsp;public class Operation {</b>
+        <i>10</i>&nbsp;
+        <i>11</i>&nbsp; /**
+        <i>12</i>&nbsp; * Converts a degree to radian
+        <i>13</i>&nbsp; *
+        <i>14</i>&nbsp; * @param degreeValue which is to be converted to radian
+        <i>15</i>&nbsp; * @return converted radian value
+        <i>16</i>&nbsp; */
+        <i>17</i>&nbsp; public Double convertDegreeToRadian(Double degreeValue) {
+        <b class="fc"><i>18</i>&nbsp; return degreeValue * (Math.PI / 180);</b>
+        <i>19</i>&nbsp; }
+        <i>20</i>&nbsp;
+        <i>21</i>&nbsp; /**
+        <i>22</i>&nbsp; * get the absolute delta between 2 given values
+        <i>23</i>&nbsp; *
+        <i>24</i>&nbsp; * @param value1
+        <i>25</i>&nbsp; * @param value2
+        <i>26</i>&nbsp; * @return absolute delta
+        <i>27</i>&nbsp; */
+        <i>28</i>&nbsp; public Double calculateAbsoluteDeltas(Double value1, Double value2) {
+        <b class="fc"><i>29</i>&nbsp; return Math.abs(convertDegreeToRadian(value1) -
+            convertDegreeToRadian(value2));</b>
+        <i>30</i>&nbsp; }
+        <i>31</i>&nbsp;
+        <i>32</i>&nbsp; /**
+        <i>33</i>&nbsp; * calculate the gcd of the given customer
+        <i>34</i>&nbsp; *
+        <i>35</i>&nbsp; * @param customer of which the gcd is to be calcuated with respect to the intercom location
+        <i>36</i>&nbsp; * @return great circle distance
+        <i>37</i>&nbsp; */
+        <i>38</i>&nbsp; public Double calculateGreatCircleDistance(Customer customer) {
+        <b class="fc"><i>39</i>&nbsp; Double deltaSigma = calculateDeltaSigma(customer);</b>
+        <b class="fc"><i>40</i>&nbsp; int earthRadius = 6371;</b>
+        <b class="fc"><i>41</i>&nbsp; return earthRadius * deltaSigma;</b>
+        <i>42</i>&nbsp; }
+        <i>43</i>&nbsp;
+        <i>44</i>&nbsp; /**
+        <i>45</i>&nbsp; * Calculate the delta sigma between customer&#39;s location and intercom&#39;s location
+        <i>46</i>&nbsp; *
+        <i>47</i>&nbsp; * @param customer
+        <i>48</i>&nbsp; * @return delta sigma
+        <i>49</i>&nbsp; */
+        <i>50</i>&nbsp; public Double calculateDeltaSigma(Customer customer) {
+        <b class="fc"><i>51</i>&nbsp; Double customerLatitudeRadian =
+            convertDegreeToRadian(Double.parseDouble(customer.getLatitude()));</b>
+        <b class="fc"><i>52</i>&nbsp; Double intercomLatitude = 53.339428;</b>
+        <b class="fc"><i>53</i>&nbsp; Double intercomLatitudeRadian = convertDegreeToRadian(intercomLatitude);</b>
+        <b class="fc"><i>54</i>&nbsp; Double intercomLongitude = -6.257664;</b>
+        <b class="fc"><i>55</i>&nbsp; Double deltaLambda =
+            calculateAbsoluteDeltas(Double.parseDouble(customer.getLongitude()), intercomLongitude);</b>
+        <i>56</i>&nbsp;
+        <b class="fc"><i>57</i>&nbsp; return Math.acos((Math.sin(customerLatitudeRadian) *
+            Math.sin(intercomLatitudeRadian))</b>
+        <b class="fc"><i>58</i>&nbsp; + (Math.cos(customerLatitudeRadian) * Math.cos(intercomLatitudeRadian) *
+            Math.cos(deltaLambda)));</b>
+        <i>59</i>&nbsp; }
+        <i>60</i>&nbsp;}
+    </div>
+</div>
+
+<div class="footer">
+
+    <div style="float:right;">generated on 2020-03-13 12:57</div>
+</div>
+</body>
+</html>

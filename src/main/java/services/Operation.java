@@ -7,9 +7,6 @@ import model.Customer;
  * to solve the mystery of the distance between 2 locations</p>
  */
 public class Operation {
-    private final Double intercomLatitude = 53.339428;
-    private final Double intercomLongitude = -6.257664;
-    private final int earthRadius = 6371;
 
     /**
      * Converts a degree to radian
@@ -40,6 +37,7 @@ public class Operation {
      */
     public Double calculateGreatCircleDistance(Customer customer) {
         Double deltaSigma = calculateDeltaSigma(customer);
+        int earthRadius = 6371;
         return earthRadius * deltaSigma;
     }
 
@@ -51,7 +49,9 @@ public class Operation {
      */
     public Double calculateDeltaSigma(Customer customer) {
         Double customerLatitudeRadian = convertDegreeToRadian(Double.parseDouble(customer.getLatitude()));
+        Double intercomLatitude = 53.339428;
         Double intercomLatitudeRadian = convertDegreeToRadian(intercomLatitude);
+        Double intercomLongitude = -6.257664;
         Double deltaLambda = calculateAbsoluteDeltas(Double.parseDouble(customer.getLongitude()), intercomLongitude);
 
         return Math.acos((Math.sin(customerLatitudeRadian) * Math.sin(intercomLatitudeRadian))
