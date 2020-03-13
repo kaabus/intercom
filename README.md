@@ -46,6 +46,7 @@ input.txt has been added to the ``intercom/build/libs`` folder
 ## Javadoc and Coverage Report 
 The documentation for the project is provided in the core directory. 
 `` ./javadoc/``
+
 The code coverage can be checked in the ``./coverageReport/`` folder 
 
 ## Known Issues
