@@ -43,9 +43,10 @@ Console will print out the output file location.
 #### Note - 
 input.txt has been added to the ``intercom/build/libs`` folder
 
-## Javadoc
+## Javadoc and Coverage Report 
 The documentation for the project is provided in the core directory. 
 `` ./javadoc/``
+The code coverage can be checked in the ``./coverageReport/`` folder 
 
 ## Known Issues
 When the user inputs the file path for both output and input, it does not check if it is a valid path. 
